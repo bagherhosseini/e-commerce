@@ -2,13 +2,6 @@ import Navbar from './(components)/Navbar';
 
 export default function Home() {
   return (
-    <>
-      <Navbar /> {
-
-      }
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black text-white">
-        {}
-      </main>
-    </>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nobis optio ducimus minus, praesentium est itaque nihil iusto esse cupiditate numquam doloremque consequuntur recusandae vitae quam labore officia sit in?</p>
   )
 }
