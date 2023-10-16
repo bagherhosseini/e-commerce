@@ -13,7 +13,6 @@ const ProductPage: React.FC<ProductPageProps> = async ({
     params
 }) => {
     const product = await getProduct(parseInt(params.productId.toString()));
-    console.log(product);
 
     if (!product) {
         return null;
