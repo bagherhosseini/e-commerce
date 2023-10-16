@@ -4,6 +4,7 @@ interface Category {
   id: number,
   name: string,
   description: string,
+  billboardId: number,
 }
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/getCategory`;
