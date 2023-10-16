@@ -1,5 +1,5 @@
 "use client";
-import useCart from "../hooks/useCart";
+import useCart from "../../hooks/useCart";
 import Link from "next/link";
 import { Toaster } from "react-hot-toast";
 
@@ -59,7 +59,7 @@ export const ProductFE: React.FC<ProductFormProps> = ({
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {products &&
-          products.map((product) => (
+          products.map((product: Product) => (
             <div key={product.id} className="bg-white rounded-lg shadow-md p-4">
               <div className="flex item-end h-full flex-col justify-between">
                 <Link href={`/product/${product.id}`}>
