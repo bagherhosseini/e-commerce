@@ -13,6 +13,7 @@ type Product = {
   archived: boolean;
   featured: boolean;
   sizeId: number;
+  storeId: string;
 };
 
 const page = async () => {
@@ -41,6 +42,7 @@ const page = async () => {
     archived: item.archived,
     featured: item.featured,
     sizeId: item.sizeId,
+    storeId: item.storeId,
   }));
 
   return <ProductFE products={formattedProducts} />;
