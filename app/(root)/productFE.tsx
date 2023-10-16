@@ -1,5 +1,5 @@
 "use client";
-import useCart from "../../../hooks/useCart";
+import useCart from "../../hooks/useCart";
 import Link from "next/link";
 import { Toaster } from "react-hot-toast";
 
