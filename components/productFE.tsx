@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import useCart from "../../../hooks/useCart";
+import useCart from "../hooks/useCart";
+import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 
 interface Product {
   id: number;
@@ -17,24 +17,54 @@ interface Product {
   storeId: string;
 }
 
-interface ProductFormProps {
-  products: Product[];
+interface Billboard {
+  id: number;
+  title: string;
+  img: string;
+  createdAt: string;
+  storeId: string;
 }
 
-export const ProductFE: React.FC<ProductFormProps> = ({ products }) => {
+interface ProductFormProps {
+  products: Product[];
+  billboards: Billboard[];
+}
+
+export const ProductFE: React.FC<ProductFormProps> = ({
+  products,
+  billboards,
+}) => {
   const cart = useCart();
   const addToCart = (product: Product) => {
     cart.addItem(product);
   };
 
+  const latestBillboard: Billboard | undefined = billboards[billboards.length - 1];
+
   return (
     <div className="p-20">
+      <div className="mb-12 rounded-xl overflow-hidden">
+        <div
+          className="bg-cover bg-no-repeat rounded-xl relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-center"
+          style={{ backgroundImage: `url(${latestBillboard?.img})` }}
+        >
+          <div className="h-full w-full flex flex-col justify-center items-center text-center gap-y-8">
+            <div className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs">
+              {latestBillboard.title}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p className="font-bold sm:text-4xl lg:text-1xl sm:max-w-xl max-w-xs mb-10">
+        Produkter
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {products &&
-          products.map((product) => (
+          products.map((product: Product) => (
             <div key={product.id} className="bg-white rounded-lg shadow-md p-4">
               <div className="flex item-end h-full flex-col justify-between">
-                <div>
+                <Link href={`/product/${product.id}`}>
                   <img
                     src={product.img}
                     alt={product.title}
@@ -48,7 +78,7 @@ export const ProductFE: React.FC<ProductFormProps> = ({ products }) => {
                       {product.description}
                     </p>
                   </div>
-                </div>
+                </Link>
                 <div className="flex justify-between item-center">
                   <p className="text-l font-bold text-primary text-center">
                     {product.price} SEK
@@ -65,6 +95,7 @@ export const ProductFE: React.FC<ProductFormProps> = ({ products }) => {
             </div>
           ))}
       </div>
+      <Toaster />
     </div>
   );
 };
