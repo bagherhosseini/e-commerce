@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body 
         className={inter.className}>
-        <header className='mt-10'>
+        <header className='mt-16'>
           <Navbar/>
         </header>
         {children}
