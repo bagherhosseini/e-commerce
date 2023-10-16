@@ -1,5 +1,6 @@
 import getProduct from '@/actions/get-product';
 import Info from '@/components/info';
+import { Toaster } from "react-hot-toast";
 
 export const revalidate = 0;
 
@@ -31,6 +32,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                     <hr className="my-10" />
                 </div>
             </div>
+            <Toaster />
         </div>
     )
 }

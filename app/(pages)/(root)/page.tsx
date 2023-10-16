@@ -16,11 +16,19 @@ type Product = {
   storeId: string;
 };
 
+interface Billboard {
+  id: number,
+  title: string,
+  img: string,
+  categoryId: number,
+  storeId: string
+};
+
 const page = async () => {
   const productFetch = async () => {
     try {
       const response = await axios.get(
-        `https://admin-dashboard-kappa-one.vercel.app/api/f47ac10b-58cc-4372-a567-0e02b2c3d479/getProduct`
+        `${process.env.NEXT_PUBLIC_API_URL}/getProduct`
       );
       return response.data.products;
     } catch (error) {
@@ -29,7 +37,20 @@ const page = async () => {
     }
   };
 
+  const billboardFetch = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/getBillboard`
+      );
+      return response.data.billboard;
+    } catch (error) {
+      console.error("Error fetching sizes:", error);
+      throw error;
+    }
+  };
+
   const products = await productFetch();
+  const billboards = await billboardFetch();
 
   const formattedProducts: Product[] = products.map((item: Product) => ({
     id: item.id,
@@ -45,7 +66,16 @@ const page = async () => {
     storeId: item.storeId,
   }));
 
-  return <ProductFE products={formattedProducts} />;
+  const formattedBillboards: Billboard[] = billboards.map((item: Billboard) => ({
+    id: item.id,
+    title: item.title,
+    img: item.img,
+    storeId: item.storeId,
+  }));
+
+  const latestBillboard: Billboard | undefined = formattedBillboards[formattedBillboards.length - 1];
+
+  return <ProductFE products={formattedProducts} billboards={latestBillboard} />;
 };
 
 export default page;
