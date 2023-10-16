@@ -21,7 +21,7 @@ interface Billboard {
   id: number;
   title: string;
   img: string;
-  categoryId: number;
+  createdAt: string;
   storeId: string;
 }
 
@@ -67,31 +67,13 @@ const page = async () => {
     storeId: item.storeId,
   }));
 
-  // const formattedBillboards: Billboard[] = billboards.map((item: Billboard) => ({
-  //   id: item.id,
-  //   title: item.title,
-  //   img: item.img,
-  //   categoryId: item.categoryId,
-  //   storeId: item.storeId,
-
-  // }));
-
-  const formattedBillboards = [
-    {
-      id: 1,
-      title: "test",
-      img: "test",
-      categoryId: 1,
-      storeId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-    },
-    {
-      id: 2,
-      title: "test",
-      img: "test",
-      categoryId: 2,
-      storeId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-    },
-  ];
+  const formattedBillboards: Billboard[] = billboards.map((item: Billboard) => ({
+    id: item.id,
+    title: item.title,
+    img: item.img,
+    createdAt: item.createdAt,
+    storeId: item.storeId,
+  }));
 
   return (
     <ProductFE products={formattedProducts} billboards={formattedBillboards} />

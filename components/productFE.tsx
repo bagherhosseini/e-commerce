@@ -21,7 +21,7 @@ interface Billboard {
   id: number;
   title: string;
   img: string;
-  categoryId: number;
+  createdAt: string;
   storeId: string;
 }
 
