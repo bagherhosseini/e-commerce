@@ -18,12 +18,12 @@ type Product = {
 };
 
 interface Billboard {
-  id: number,
-  title: string,
-  img: string,
-  categoryId: number,
-  storeId: string
-};
+  id: number;
+  title: string;
+  img: string;
+  categoryId: number;
+  storeId: string;
+}
 
 const page = async () => {
   const productFetch = async () => {
@@ -38,20 +38,20 @@ const page = async () => {
     }
   };
 
-  // const billboardFetch = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       `${process.env.NEXT_PUBLIC_API_URL}/getBillboard`
-  //     );
-  //     return response.data.billboard;
-  //   } catch (error) {
-  //     console.error("Error fetching sizes:", error);
-  //     throw error;
-  //   }
-  // };
+  const billboardFetch = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/getBillboard`
+      );
+      return response.data.billboard;
+    } catch (error) {
+      console.error("Error fetching sizes:", error);
+      throw error;
+    }
+  };
 
   const products: Product[] = await productFetch();
-  // const billboards: Billboard[] = await billboardFetch();
+  const billboards: Billboard[] = await billboardFetch();
 
   const formattedProducts: Product[] = products.map((item: Product) => ({
     id: item.id,
@@ -77,11 +77,25 @@ const page = async () => {
   // }));
 
   const formattedBillboards = [
-    { id: 1, title: "test", img: "test", categoryId: 1, storeId: "f47ac10b-58cc-4372-a567-0e02b2c3d479" },
-    { id: 2, title: "test", img: "test", categoryId: 2, storeId: "f47ac10b-58cc-4372-a567-0e02b2c3d479" }
-  ]
+    {
+      id: 1,
+      title: "test",
+      img: "test",
+      categoryId: 1,
+      storeId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    },
+    {
+      id: 2,
+      title: "test",
+      img: "test",
+      categoryId: 2,
+      storeId: "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    },
+  ];
 
-  return <ProductFE products={formattedProducts} billboards={formattedBillboards} />;
+  return (
+    <ProductFE products={formattedProducts} billboards={formattedBillboards} />
+  );
 };
 
 export default page;
