@@ -73,12 +73,10 @@ const page = async () => {
     img: item.img,
     categoryId: item.categoryId,
     storeId: item.storeId,
-    
+
   }));
 
-  const latestBillboard: Billboard | undefined = formattedBillboards[formattedBillboards.length - 1];
-
-  return <ProductFE products={formattedProducts} billboards={latestBillboard} />;
+  return <ProductFE products={formattedProducts} billboards={formattedBillboards} />;
 };
 
 export default page;

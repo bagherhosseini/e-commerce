@@ -27,7 +27,7 @@ interface Billboard {
 
 interface ProductFormProps {
   products: Product[];
-  billboards: Billboard;
+  billboards: Billboard[];
 }
 
 export const ProductFE: React.FC<ProductFormProps> = ({
@@ -39,16 +39,18 @@ export const ProductFE: React.FC<ProductFormProps> = ({
     cart.addItem(product);
   };
 
+  const latestBillboard: Billboard | undefined = billboards[billboards.length - 1];
+
   return (
     <div className="p-20">
       <div className="mb-12 rounded-xl overflow-hidden">
         <div
           className="bg-cover bg-no-repeat rounded-xl relative aspect-square md:aspect-[2.4/1] overflow-hidden bg-center"
-          style={{ backgroundImage: `url(${billboards?.img})` }}
+          style={{ backgroundImage: `url(${latestBillboard?.img})` }}
         >
           <div className="h-full w-full flex flex-col justify-center items-center text-center gap-y-8">
             <div className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs">
-              {billboards.title}
+              {latestBillboard.title}
             </div>
           </div>
         </div>
