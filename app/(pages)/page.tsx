@@ -49,8 +49,8 @@ const page = async () => {
     }
   };
 
-  const products = await productFetch();
-  const billboards = await billboardFetch();
+  const products : Product[] = await productFetch();
+  const billboards : Billboard[]= await billboardFetch();
 
   const formattedProducts: Product[] = products.map((item: Product) => ({
     id: item.id,
@@ -70,7 +70,9 @@ const page = async () => {
     id: item.id,
     title: item.title,
     img: item.img,
+    categoryId: item.categoryId,
     storeId: item.storeId,
+    
   }));
 
   const latestBillboard: Billboard | undefined = formattedBillboards[formattedBillboards.length - 1];
