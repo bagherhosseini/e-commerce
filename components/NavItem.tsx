@@ -35,9 +35,6 @@ const NavItem: React.FC<CategoryItems> = ({
               {category.name}
             </Link>
           ))}
-          <Link className="hover:text-gray-300" href="/about-us">
-            Om oss
-          </Link>
           <Link className="hover:text-gray-300" href="/cart">
             Kassa
           </Link>
