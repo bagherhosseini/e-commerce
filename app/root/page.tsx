@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { ProductFE } from "../components/productFE";
+import { ProductFE } from "../../components/productFE";
 
 type Product = {
   id: number;
@@ -75,10 +75,6 @@ const Page = async () => {
     createdAt: item.createdAt,
     storeId: item.storeId,
   }));
-
-  console.log("formattedBillboards:", formattedBillboards);
-  console.log("formattedProducts:", formattedProducts);
-  console.log("dateNow:", Date.now().toString());
 
   return (
     <ProductFE products={formattedProducts} billboards={formattedBillboards} dateNow={Date.now().toString()} />
