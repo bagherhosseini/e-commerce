@@ -1,7 +1,6 @@
 import { ProductFE } from "../components/productFE";
 import getProducts from "../actions/get-products";
 import getBillboards from "../actions/get-billboards";
-import axios from "axios"
 
 type Product = {
   id: number;
@@ -26,33 +25,11 @@ interface Billboard {
 }
 
 const page: React.FC = async () => {
+  const productFetch = await getProducts();
+  const billboardFetch = await getBillboards();
 
-  const productFetch = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/getProduct`
-      );
-      return response.data.products;
-    } catch (error) {
-      console.error("Error fetching sizes:", error);
-      throw error;
-    }
-  };
-
-  const billboardFetch = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/getBillboard`
-      );
-      return response.data.billboard;
-    } catch (error) {
-      console.error("Error fetching sizes:", error);
-      throw error;
-    }
-  };
-
-  const products: Product[] = await productFetch();
-  const billboards: Billboard[] = await billboardFetch();
+  const products: Product[] = await productFetch;
+  const billboards: Billboard[] = await billboardFetch;
 
   const formattedProducts: Product[] = products.map((item: Product) => ({
     id: item.id,
