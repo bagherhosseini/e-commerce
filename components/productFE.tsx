@@ -28,11 +28,13 @@ interface Billboard {
 interface ProductFormProps {
   products: Product[];
   billboards: Billboard[];
+  dateNow: string;
 }
 
 export const ProductFE: React.FC<ProductFormProps> = ({
   products,
   billboards,
+  dateNow
 }) => {
   const cart = useCart();
   const addToCart = (product: Product) => {
@@ -43,7 +45,7 @@ export const ProductFE: React.FC<ProductFormProps> = ({
   console.log("latestBillboard ProductFE:", latestBillboard);
   console.log("products ProductFE:", products);
   console.log("billboards ProductFE:", billboards);
-
+  console.log("dateNow ProductFE: ", dateNow);
   return (
     <div className="p-20">
       <div className="mb-12 rounded-xl overflow-hidden">

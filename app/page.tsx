@@ -78,9 +78,10 @@ const Page = async () => {
 
   console.log("formattedBillboards:", formattedBillboards);
   console.log("formattedProducts:", formattedProducts);
+  console.log("dateNow:", Date.now().toString());
 
   return (
-    <ProductFE products={formattedProducts} billboards={formattedBillboards} />
+    <ProductFE products={formattedProducts} billboards={formattedBillboards} dateNow={Date.now().toString()} />
   );
 };
 
