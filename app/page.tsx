@@ -1,6 +1,5 @@
-import React from "react";
 import axios from "axios";
-import { ProductFE } from "../../components/productFE";
+import { ProductFE } from "../components/productFE";
 
 type Product = {
   id: number;
@@ -24,13 +23,13 @@ interface Billboard {
   storeId: string;
 }
 
-const Page = async () => {
+const page: React.FC = async () => {
+
   const productFetch = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL_Test}/getProduct`
+        `${process.env.NEXT_PUBLIC_API_URL}/getProduct`
       );
-      console.log("response.data.products:", response.data.products);
       return response.data.products;
     } catch (error) {
       console.error("Error fetching sizes:", error);
@@ -41,9 +40,8 @@ const Page = async () => {
   const billboardFetch = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL_Test}/getBillboard`
+        `${process.env.NEXT_PUBLIC_API_URL}/getBillboard`
       );
-      console.log("response.data.billboard:", response.data.billboard);
       return response.data.billboard;
     } catch (error) {
       console.error("Error fetching sizes:", error);
@@ -81,4 +79,4 @@ const Page = async () => {
   );
 };
 
-export default Page;
+export default page;
