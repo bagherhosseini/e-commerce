@@ -24,7 +24,7 @@ interface Billboard {
   storeId: string;
 }
 
-const page = async () => {
+const Page = async () => {
   const productFetch = async () => {
     try {
       const response = await axios.get(
@@ -79,4 +79,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Page;
