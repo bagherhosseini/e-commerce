@@ -40,6 +40,9 @@ export const ProductFE: React.FC<ProductFormProps> = ({
   };
 
   const latestBillboard: Billboard | undefined = billboards[billboards.length - 1];
+  console.log("latestBillboard ProductFE:", latestBillboard);
+  console.log("products ProductFE:", products);
+  console.log("billboards ProductFE:", billboards);
 
   return (
     <div className="p-20">

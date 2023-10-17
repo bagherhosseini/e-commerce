@@ -30,6 +30,7 @@ const Page = async () => {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL_Test}/getProduct`
       );
+      console.log("response.data.products:", response.data.products);
       return response.data.products;
     } catch (error) {
       console.error("Error fetching sizes:", error);
@@ -42,6 +43,7 @@ const Page = async () => {
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL_Test}/getBillboard`
       );
+      console.log("response.data.billboard:", response.data.billboard);
       return response.data.billboard;
     } catch (error) {
       console.error("Error fetching sizes:", error);
@@ -73,6 +75,9 @@ const Page = async () => {
     createdAt: item.createdAt,
     storeId: item.storeId,
   }));
+
+  console.log("formattedBillboards:", formattedBillboards);
+  console.log("formattedProducts:", formattedProducts);
 
   return (
     <ProductFE products={formattedProducts} billboards={formattedBillboards} />
