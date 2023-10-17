@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { ProductFE } from "../../components/productFE";
+import { ProductFE } from "../components/productFE";
 
 type Product = {
   id: number;
