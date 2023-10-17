@@ -28,7 +28,7 @@ const page = async () => {
   const productFetch = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/getProduct`
+        `${process.env.NEXT_PUBLIC_API_URL_Test}/getProduct`
       );
       return response.data.products;
     } catch (error) {
@@ -40,7 +40,7 @@ const page = async () => {
   const billboardFetch = async () => {
     try {
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/getBillboard`
+        `${process.env.NEXT_PUBLIC_API_URL_Test}/getBillboard`
       );
       return response.data.billboard;
     } catch (error) {
