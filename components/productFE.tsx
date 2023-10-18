@@ -42,10 +42,6 @@ export const ProductFE: React.FC<ProductFormProps> = ({
   };
 
   const latestBillboard: Billboard | undefined = billboards[billboards.length - 1];
-  console.log("latestBillboard ProductFE:", latestBillboard);
-  console.log("products ProductFE:", products);
-  console.log("billboards ProductFE:", billboards);
-  console.log("dateNow ProductFE: ", dateNow);
   return (
     <div className="p-20">
       <div className="mb-12 rounded-xl overflow-hidden">
