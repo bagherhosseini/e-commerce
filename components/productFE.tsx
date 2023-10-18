@@ -28,11 +28,13 @@ interface Billboard {
 interface ProductFormProps {
   products: Product[];
   billboards: Billboard[];
+  dateNow: string;
 }
 
 export const ProductFE: React.FC<ProductFormProps> = ({
   products,
   billboards,
+  dateNow
 }) => {
   const cart = useCart();
   const addToCart = (product: Product) => {
@@ -40,7 +42,6 @@ export const ProductFE: React.FC<ProductFormProps> = ({
   };
 
   const latestBillboard: Billboard | undefined = billboards[billboards.length - 1];
-
   return (
     <div className="p-20">
       <div className="mb-12 rounded-xl overflow-hidden">
@@ -81,7 +82,7 @@ export const ProductFE: React.FC<ProductFormProps> = ({
                 </Link>
                 <div className="flex justify-between item-center">
                   <p className="text-l font-bold text-primary text-center">
-                    {product.price} SEK
+                    {parseFloat(product.price.toString()).toFixed(2).replace(".", ":")} SEK
                   </p>
 
                   <button

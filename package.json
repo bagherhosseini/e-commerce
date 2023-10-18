@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
     "@radix-ui/react-slot": "^1.0.2",
     "axios": "^1.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "i": "^0.3.7",
     "lucide-react": "^0.284.0",
     "next": "latest",
+    "npm": "^10.2.0",
     "postcss-preset-env": "^9.1.4",
     "react": "latest",
     "react-dom": "latest",

@@ -97,7 +97,7 @@ const sortCategoryPage: React.FC<CategoryPageProps> = async ({
     const category = categories.find((category) => category.id === parseInt(params.id.toString()));
     const filteredBillboards = formattedBillboards.filter((billboard) => billboard.id === category?.billboardId);
     return (
-        <ProductFE products={filteredProducts} billboards={filteredBillboards} />
+        <ProductFE products={filteredProducts} billboards={filteredBillboards} dateNow={Date.now().toString()} />
     );
 };
 
