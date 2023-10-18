@@ -7,7 +7,7 @@ interface Billboard {
     createdAt: string;
     storeId: string;
 }
-const URL = `${process.env.NEXT_PUBLIC_API_URL_Test}/getBillboard`;
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/getBillboard`;
 
 const getBillboards = async (): Promise<Billboard[]> => {
     const response = await axios.get(`${URL}`);

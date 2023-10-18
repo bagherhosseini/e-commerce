@@ -14,7 +14,7 @@ interface Product {
   storeId: string
 };
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL_Test}/getProduct`;
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/getProduct`;
 
 const getProducts = async (): Promise<Product[]> => {
   const response = await axios.get(`${URL}`);
