@@ -46,7 +46,7 @@ const Summary = () => {
       <div className="mt-6 space-y-4">
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
           <div className="text-base font-medium text-gray-900">Order total</div>
-          <p>{totalPrice} SEK</p>
+          <p>{parseFloat(totalPrice.toString()).toFixed(2).replace(".", ":")} SEK</p>
         </div>
       </div>
       <Button onClick={onCheckout} disabled={items.length === 0} className="w-full mt-6">

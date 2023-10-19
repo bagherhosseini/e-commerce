@@ -17,7 +17,7 @@ const CartItemInfo: React.FC<CartItemInfoProps> = ({
         <p className="text-gray-500">{product.color}</p>
         <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">{product.size}</p>
       </div>
-      <p className="mt-1 text-sm font-medium text-gray-900">{product.price}</p>
+      <p className="mt-1 text-sm font-medium text-gray-900">{parseFloat(product.price.toString()).toFixed(2).replace(".", ":")} SEK</p>
     </div>
   );
 }
