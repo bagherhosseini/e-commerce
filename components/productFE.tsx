@@ -30,13 +30,11 @@ interface Billboard {
 interface ProductFormProps {
   products: Product[];
   billboards: Billboard[];
-  dateNow: string;
 }
 
 export const ProductFE: React.FC<ProductFormProps> = ({
   products,
   billboards,
-  dateNow
 }) => {
   const cart = useCart();
   const addToCart = (product: Product) => {

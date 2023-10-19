@@ -9,7 +9,7 @@ const HomePage = async () => {
     const billboard = await getBillboards();
     
     return (
-        <ProductFE products={products} billboards={billboard} dateNow={Date.now().toString()} />
+        <ProductFE products={products} billboards={billboard} />
     );
 };
 
