@@ -36,7 +36,7 @@ const useCart = create(
         existingItem.quantity += 1;
         existingItem.totalPriceCart = existingItem.quantity * existingItem.price;
         set({ items: [...currentItems] });
-        return toast('Item added to cart.');
+        return toast.success('Item added to cart. +1');
       }
 
       set({ items: [...get().items, data] });
