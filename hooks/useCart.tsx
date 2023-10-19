@@ -13,7 +13,9 @@ interface Product {
   archived: boolean,
   featured: boolean,
   sizeId: number,
-  storeId: string
+  storeId: string, 
+  quantity: number,
+  totalPriceCart: number
 };
 
 interface CartStore {
@@ -31,7 +33,10 @@ const useCart = create(
       const existingItem = currentItems.find((item) => item.id === data.id);
 
       if (existingItem) {
-        return toast('Item already in cart.');
+        existingItem.quantity += 1;
+        existingItem.totalPriceCart = existingItem.quantity * existingItem.price;
+        set({ items: [...currentItems] });
+        return toast('Item added to cart.');
       }
 
       set({ items: [...get().items, data] });

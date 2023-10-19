@@ -15,6 +15,7 @@ interface Product {
   featured: boolean;
   sizeId: number;
   storeId: string;
+  quantity: number
 }
 
 interface Billboard {
@@ -38,6 +39,7 @@ export const ProductFE: React.FC<ProductFormProps> = ({
 }) => {
   const cart = useCart();
   const addToCart = (product: Product) => {
+    product.quantity = 1;
     cart.addItem(product);
   };
 
