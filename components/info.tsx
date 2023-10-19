@@ -16,7 +16,9 @@ interface Product {
   archived: boolean,
   featured: boolean,
   sizeId: number,
-  storeId: string
+  storeId: string,
+  quantity: number,
+  totalPriceCart: number
 };
 
 interface InfoProps {

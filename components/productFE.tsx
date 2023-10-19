@@ -15,7 +15,8 @@ interface Product {
   featured: boolean;
   sizeId: number;
   storeId: string;
-  quantity: number
+  quantity: number;
+  totalPriceCart: number;
 }
 
 interface Billboard {

@@ -16,6 +16,8 @@ type Product = {
     featured: boolean;
     sizeId: number;
     storeId: string;
+    quantity: number;
+    totalPriceCart: number;
 };
 
 interface Billboard {
@@ -83,6 +85,8 @@ const sortCategoryPage: React.FC<CategoryPageProps> = async ({
         featured: item.featured,
         sizeId: item.sizeId,
         storeId: item.storeId,
+        quantity: item.quantity,
+        totalPriceCart: item.totalPriceCart,
     }));
 
     const formattedBillboards: Billboard[] = billboards.map((item: Billboard) => ({

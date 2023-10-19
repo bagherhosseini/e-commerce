@@ -11,7 +11,9 @@ interface Product {
   archived: boolean,
   featured: boolean,
   sizeId: number,
-  storeId: string
+  storeId: string,
+  quantity: number,
+  totalPriceCart: number
 };
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/getProduct`;
