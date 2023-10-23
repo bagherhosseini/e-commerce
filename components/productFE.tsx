@@ -38,7 +38,6 @@ export const ProductFE: React.FC<ProductFormProps> = ({
 }) => {
   const cart = useCart();
   const addToCart = (product: Product) => {
-    product.quantity = 1;
     cart.addItem(product);
   };
 

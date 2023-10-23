@@ -38,7 +38,7 @@ const useCart = create(
         set({ items: [...currentItems] });
         return toast.success('Item added to cart. +1');
       }
-
+      data.quantity = 1;
       set({ items: [...get().items, data] });
       toast.success('Item added to cart.');
     },
